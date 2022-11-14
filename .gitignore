@@ -1,0 +1,7 @@
+*.egg-info/
+*.pyc
+build/
+.venv/
+comet/plugins/actualconfig.json
+actualconfig.json
+update.sh
