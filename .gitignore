@@ -1,7 +1,8 @@
 *.egg-info/
 *.pyc
 build/
-.venv/
+venv/
 comet/plugins/actualconfig.json
 actualconfig.json
 update.sh
+twistd.pid
