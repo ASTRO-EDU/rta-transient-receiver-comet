@@ -2,9 +2,11 @@ import voeventparse as vp
 from comet.icomet import IHandler
 from twisted.plugin import IPlugin
 from zope.interface import implementer
-from comet.plugins.voeventhandler import VoeventHandler
-from comet.plugins.test.test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI
+from voeventhandler.voeventhandler import VoeventHandler
+from voeventhandler.test.test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI
 from comet.utility.xml import xml_document
+import sys
+sys.path.append('rta-transient-receiver/voeventhandler')
 
 # Event handlers must implement IPlugin and IHandler.
 @implementer(IPlugin, IHandler)
@@ -12,7 +14,6 @@ class EventReceiver(object):
     
     name = "receive-event"
     print("receive event attivo")       
-    
 
     # When the handler is called, it is passed an instance of
     # comet.utility.xml.xml_document.
