@@ -5,8 +5,9 @@ from zope.interface import implementer
 from voeventhandler.voeventhandler import VoeventHandler
 from voeventhandler.test.test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI
 from comet.utility.xml import xml_document
+from pathlib import Path
 import sys
-sys.path.append('rta-transient-receiver/voeventhandler')
+#sys.path.append('rta-transient-receiver/voeventhandler')
 
 # Event handlers must implement IPlugin and IHandler.
 @implementer(IPlugin, IHandler)
@@ -19,13 +20,24 @@ class EventReceiver(object):
     # comet.utility.xml.xml_document.
     def __call__(self, event):
         
+        #save a reference to the log file
+        log_file = Path(__file__).parent / "log" / "log.txt"
+
         try:
             voevent_handler = VoeventHandler()
             voevent_handler.printVoevent(vp.loads(event.raw_bytes))
             voevent_handler.handleVoevent(vp.loads(event.raw_bytes))
             return True
         except Exception as e:
-            print(e)
+            error = 'Error: ' + str(e) + "\n"
+            message = 'Message: ' + str(event.raw_bytes) + "\n"
+            f = open(log_file, "a")
+            f.write(error)
+            f.write(message)
+            f.write("----------------------- \n")
+            f.close()
+            print(message)
+            print(error)
             return True
 
 receive_event = EventReceiver()

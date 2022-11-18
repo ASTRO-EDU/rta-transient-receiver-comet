@@ -12,7 +12,7 @@ For creating and install a new virtual enviroment: https://docs.python.org/3/lib
 
 ### Steps for installation:
 
-First of all is important fill the config.json template with the required information. You can find this file in voeventhandler/config/config.json
+First of all is important fill the config.json template with the required information. You can find this file in rta-transient-receiver/voeventhandler/config/config.json
 
 Then create a new virtual enviroment in a folder named venv whith the following command:
 ```
@@ -24,11 +24,11 @@ source venv/bin/activate
 ```
 Then install the dependency contained in the file requirements.txt in the new virtual enviroment.
 ```
-pip install -r requirements.txt
+pip install -r rta-transient-receiver/requirements.txt
 ```
 And use the following command for excecute the file setup.py
 ```
-pip install .
+pip install rta-transient-receiver/
 ```
 
 ## Run transient-receiver
