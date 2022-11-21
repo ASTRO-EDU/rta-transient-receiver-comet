@@ -4,6 +4,14 @@
 rta-transient-receiver-comet is a COMET plugin for handling VoEvents notices. The plugin writes the notices in a MySQL database and performs several processes for detecting a possible correlation among instruments. Then it sends an email alert to the team for further analysis.
 This code just implements the class eventreciver and uses the code from https://github.com/ASTRO-EDU/rta-transient-receiver for the data manipulation. 
 
+## Download
+This repo contain a submodule so, clone the repo then download the submodules
+```
+git clone git@github.com:ASTRO-EDU/rta-transient-receiver-comet.git
+cd rta-transient-receiver-comet/
+git submodule update --init --recursive
+```
+
 ## Installation
 
 The dependencies are listed in the file requirement.txt. It is recommended to install them into a venv enviromnent.
@@ -22,13 +30,15 @@ Now activate the virtual enviroment whit the command:
 ```
 source venv/bin/activate
 ```
-Then install the dependency contained in the file requirements.txt in the new virtual enviroment.
+Then install the dependency for the program and the submodule.
 ```
-pip install -r rta-transient-receiver/requirements.txt
+pip install -r rta-transient-receiver/requirements.txt 
+pip install -r requirements.txt
 ```
-And use the following command for excecute the file setup.py
+And use the following commands for excecute the files setup.py to install the program 
 ```
 pip install rta-transient-receiver/
+pip install .
 ```
 
 ## Run transient-receiver
