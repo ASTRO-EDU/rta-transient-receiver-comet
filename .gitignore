@@ -1,0 +1,9 @@
+*.egg-info/
+*.pyc
+build/
+venv/
+comet/plugins/actualconfig.json
+actualconfig.json
+update.sh
+twistd.pid
+rta-transient-receiver/
