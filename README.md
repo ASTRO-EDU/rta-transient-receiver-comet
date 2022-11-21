@@ -7,9 +7,7 @@ This code just implements the class eventreciver and uses the code from https://
 ## Download
 This repo contain a submodule so, clone the repo then download the submodules
 ```
-git clone git@github.com:ASTRO-EDU/rta-transient-receiver-comet.git
-cd rta-transient-receiver-comet/
-git submodule update --init --recursive
+git clone --recurse-submodules git@github.com:ASTRO-EDU/rta-transient-receiver-comet.git
 ```
 
 ## Installation
