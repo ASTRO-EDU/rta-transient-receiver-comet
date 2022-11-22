@@ -21,7 +21,7 @@ class EventReceiver(object):
     def __call__(self, event):
         
         #save a reference to the log file
-        log_file = Path(__file__).parent / "log" / "log.txt"
+        log_file = Path(__file__).parent / "log.txt"
 
         try:
             voevent_handler = VoeventHandler()
